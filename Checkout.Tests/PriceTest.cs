@@ -47,6 +47,10 @@ namespace Checkout.Tests
         [TestCase("AAABBD", 190)]
         [TestCase("DABABA", 190)]
         [TestCase("CDBA", 115)]
+        [TestCase("AAAA", 180)]               
+        [TestCase("BB", 45)]
+        [TestCase("  ", 0)]
+        [TestCase("Z", 0)]
         public void CalculatePrice_VariousScenarios_ReturnsExpectedTotal(string items, int expectedTotal)
         {
             var checkout = new CheckOut(_rules);
