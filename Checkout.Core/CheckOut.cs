@@ -24,7 +24,17 @@ namespace Checkout.Core
 
                 if (pricingRule is not null)
                 {
-                    totalPrice += (count * pricingRule.UnitPrice);
+                    if (pricingRule.SpecialOffer is not null)
+                    {
+                        var specialBundle = count / pricingRule.SpecialOffer.Quantity;
+                        var remainingItems = count % pricingRule.SpecialOffer.Quantity;
+
+                        totalPrice += (specialBundle * pricingRule.SpecialOffer.SpecialPrice) + (remainingItems * pricingRule.UnitPrice);
+                    }
+                    else
+                    {
+                        totalPrice += (count * pricingRule.UnitPrice);
+                    }
                 }
             }
 

@@ -33,30 +33,30 @@ namespace Checkout.Tests
             Assert.That(checkout.GetTotalPrice(), Is.EqualTo(50));
         }
 
-        //[Test]
-        //public void Scan_SpecialOfferItems_ReturnsDiscountedPrice()
-        //{
-        //    var checkout = new CheckOut(_rules);
-        //    checkout.Scan("A");
-        //    checkout.Scan("A");
-        //    checkout.Scan("A");
+        [Test]
+        public void Scan_SpecialOfferItems_ReturnsDiscountedPrice()
+        {
+            var checkout = new CheckOut(_rules);
+            checkout.Scan("A");
+            checkout.Scan("A");
+            checkout.Scan("A");
 
-        //    Assert.That(checkout.GetTotalPrice(), Is.EqualTo(130));
-        //}
+            Assert.That(checkout.GetTotalPrice(), Is.EqualTo(130));
+        }
 
-        //[TestCase("AAABBD", 190)]
-        //[TestCase("DABABA", 190)]
-        //[TestCase("CDBA", 115)]
-        //public void CalculatePrice_VariousScenarios_ReturnsExpectedTotal(string items, int expectedTotal)
-        //{
-        //    var checkout = new CheckOut(_rules);
+        [TestCase("AAABBD", 190)]
+        [TestCase("DABABA", 190)]
+        [TestCase("CDBA", 115)]
+        public void CalculatePrice_VariousScenarios_ReturnsExpectedTotal(string items, int expectedTotal)
+        {
+            var checkout = new CheckOut(_rules);
 
-        //    foreach (var item in items)
-        //    {
-        //        checkout.Scan(item.ToString());
-        //    }
+            foreach (var item in items)
+            {
+                checkout.Scan(item.ToString());
+            }
 
-        //    Assert.That(checkout.GetTotalPrice(), Is.EqualTo(expectedTotal));
-        //}
+            Assert.That(checkout.GetTotalPrice(), Is.EqualTo(expectedTotal));
+        }
     }
 }
