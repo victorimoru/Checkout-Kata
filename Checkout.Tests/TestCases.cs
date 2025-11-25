@@ -3,7 +3,7 @@ using Checkout.Core.Models;
 
 namespace Checkout.Tests
 {
-    public class Tests
+    public class TestCases
     {
         private IEnumerable<PricingRule> _rules;
 
